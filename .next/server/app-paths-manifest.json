@@ -1,8 +1,0 @@
-{
-  "/dashboard/profile/page": "app/dashboard/profile/page.js",
-  "/dashboard/portfolio/page": "app/dashboard/portfolio/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/projects/page": "app/dashboard/projects/page.js",
-  "/dashboard/missions/page": "app/dashboard/missions/page.js",
-  "/dashboard/projects/[id]/page": "app/dashboard/projects/[id]/page.js"
-}
