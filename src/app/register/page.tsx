@@ -38,16 +38,16 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white px-6 pt-12 pb-8">
+    <div className="min-h-screen min-h-[100dvh] flex flex-col bg-white px-5 sm:px-8 pt-12 safe-top pb-8 pb-safe">
       {/* Back */}
-      <button onClick={() => router.back()} className="self-start mb-6">
+      <button onClick={() => router.back()} className="self-start mb-6 p-1 -ml-1">
         <svg className="w-6 h-6 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
-      <h1 className="text-3xl font-bold text-slate-800 mb-2">Create Account 🚀</h1>
-      <p className="text-gray-500 mb-6">Join the Career Launchpad community</p>
+      <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2">Create Account 🚀</h1>
+      <p className="text-gray-500 text-sm sm:text-base mb-6">Join the Career Launchpad community</p>
 
       <form onSubmit={handleRegister} className="flex flex-col gap-4 overflow-y-auto flex-1">
         {/* Name */}

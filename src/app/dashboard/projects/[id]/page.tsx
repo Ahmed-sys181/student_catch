@@ -29,7 +29,7 @@ export default function ProjectDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-24">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 px-5 pt-12 pb-8 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-blue-600 to-blue-800 px-4 sm:px-6 pt-12 safe-top pb-8 rounded-b-[30px]">
         <div className="flex items-center justify-between mb-6">
           <button onClick={() => router.back()}>
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -52,9 +52,9 @@ export default function ProjectDetailPage() {
         <p className="text-white/70 text-sm">{project.category}</p>
       </div>
 
-      <div className="px-5 pt-6 space-y-5">
+      <div className="px-4 sm:px-6 pt-6 space-y-5">
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
           {[
             { icon: '👥', label: 'Participants', value: project.participantsCount.toString() },
             { icon: '⏱️', label: 'Duration', value: `${project.estimatedHours}h` },
@@ -115,7 +115,7 @@ export default function ProjectDetailPage() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-100 p-4">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-full sm:max-w-[640px] lg:max-w-[768px] bg-white border-t border-gray-100 p-4 pb-safe">
         <button className="w-full py-4 bg-blue-600 text-white rounded-2xl font-semibold text-base shadow-lg shadow-blue-600/30 hover:bg-blue-700 transition">
           Start Project
         </button>

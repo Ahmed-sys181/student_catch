@@ -37,7 +37,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-slate-700 to-slate-900 px-5 pt-12 pb-8 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-slate-700 to-slate-900 px-4 sm:px-6 pt-12 safe-top pb-8 rounded-b-[30px]">
         <div className="flex items-center justify-between mb-6">
           <button onClick={() => router.back()}>
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -65,7 +65,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Stats */}
-      <div className="mx-5 -mt-1 grid grid-cols-3 gap-3 pt-5">
+      <div className="mx-4 sm:mx-6 -mt-1 grid grid-cols-3 gap-2 sm:gap-3 pt-5">
         {[
           { icon: '⚡', label: 'Total XP', value: currentUser.xpPoints },
           { icon: '📁', label: 'Projects', value: currentUser.completedProjects },
@@ -80,7 +80,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Menu Items */}
-      <div className="mx-5 mt-5 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="mx-4 sm:mx-6 mt-5 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         {menuItems.map((item, i) => (
           <button
             key={item.label}
@@ -99,7 +99,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Sign Out */}
-      <div className="mx-5 mt-5 mb-8">
+      <div className="mx-4 sm:mx-6 mt-5 mb-8">
         <button
           onClick={() => setShowLogout(true)}
           className="w-full py-4 bg-red-50 text-red-600 rounded-2xl font-semibold text-base border border-red-100 hover:bg-red-100 transition"
@@ -110,9 +110,9 @@ export default function ProfilePage() {
 
       {/* Logout Confirmation */}
       {showLogout && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-6 sm:px-8">
           <div className="absolute inset-0 bg-black/50" onClick={() => setShowLogout(false)} />
-          <div className="relative bg-white rounded-3xl p-6 w-full max-w-sm text-center">
+          <div className="relative bg-white rounded-3xl p-5 sm:p-6 w-full max-w-sm text-center">
             <span className="text-5xl">👋</span>
             <h3 className="text-xl font-bold text-slate-800 mt-4">Sign Out?</h3>
             <p className="text-gray-500 text-sm mt-2">You&apos;ll need to sign in again to access your account.</p>

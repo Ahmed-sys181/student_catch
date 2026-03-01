@@ -2,8 +2,8 @@ import { Job, getJobTypeLabel, getExperienceLevelLabel, getSalaryRange, timeAgo 
 
 export default function JobCard({ job, onClick, onSave }: { job: Job; onClick?: () => void; onSave?: () => void }) {
   return (
-    <div onClick={onClick} className="bg-white rounded-2xl p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
-      <div className="flex items-start gap-3">
+    <div onClick={onClick} className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-sm cursor-pointer hover:shadow-md active:scale-[0.98] transition-all">
+      <div className="flex items-start gap-2.5 sm:gap-3">
         <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-2xl shrink-0">{job.companyLogo}</div>
         <div className="flex-1 min-w-0">
           <h3 className="text-[15px] font-semibold text-slate-800">{job.title}</h3>
@@ -18,8 +18,8 @@ export default function JobCard({ job, onClick, onSave }: { job: Job; onClick?: 
         <span className="text-[10px] font-semibold px-2 py-1 rounded-md bg-emerald-50 text-emerald-600">{getExperienceLevelLabel(job.experienceLevel)}</span>
         {job.isRemote && <span className="text-[10px] font-semibold px-2 py-1 rounded-md bg-violet-50 text-violet-600">Remote</span>}
       </div>
-      <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
-        <span>📍 {job.location}</span>
+      <div className="flex items-center flex-wrap gap-2 sm:gap-4 mt-3 text-xs text-gray-500">
+        <span className="truncate">📍 {job.location}</span>
         <span>💰 {getSalaryRange(job)}</span>
       </div>
       <div className="flex flex-wrap gap-1.5 mt-3">

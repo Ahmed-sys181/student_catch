@@ -36,7 +36,7 @@ export default function JobsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-purple-600 to-purple-800 px-5 pt-12 pb-6 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-purple-600 to-purple-800 px-4 sm:px-6 pt-12 safe-top pb-6 rounded-b-[30px]">
         <div className="flex items-center justify-between mb-4">
           <button onClick={() => router.back()}>
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -59,7 +59,7 @@ export default function JobsPage() {
       </div>
 
       {/* Type filters */}
-      <div className="flex gap-2 overflow-x-auto no-scrollbar px-5 py-4">
+      <div className="flex gap-2 overflow-x-auto no-scrollbar px-4 sm:px-6 py-4">
         {typeFilters.map((t) => (
           <button
             key={t.label}
@@ -76,12 +76,12 @@ export default function JobsPage() {
       </div>
 
       {/* Results count */}
-      <div className="px-5 mb-3">
+      <div className="px-4 sm:px-6 mb-3">
         <p className="text-sm text-gray-500">{filtered.length} jobs found</p>
       </div>
 
       {/* List */}
-      <div className="px-5 space-y-3 pb-4">
+      <div className="px-4 sm:px-6 space-y-3 pb-4">
         {filtered.length === 0 ? (
           <div className="text-center py-16">
             <span className="text-5xl">💼</span>
@@ -103,7 +103,7 @@ export default function JobsPage() {
       {detail && (
         <div className="fixed inset-0 z-50 flex items-end justify-center">
           <div className="absolute inset-0 bg-black/50" onClick={() => setSelectedJob(null)} />
-          <div className="relative bg-white w-full max-w-[430px] rounded-t-3xl max-h-[85vh] overflow-y-auto pb-8">
+          <div className="relative bg-white w-full max-w-full sm:max-w-[640px] lg:max-w-[768px] rounded-t-3xl max-h-[85vh] overflow-y-auto pb-8 pb-safe">
             <div className="sticky top-0 bg-white pt-3 pb-2 px-5 border-b border-gray-100 rounded-t-3xl">
               <div className="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-3" />
               <div className="flex items-center justify-between">

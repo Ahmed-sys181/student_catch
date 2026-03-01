@@ -5,8 +5,8 @@ const levelColors: Record<number, string> = { 1: '#9CA3AF', 2: '#10B981', 3: '#2
 
 export default function SkillCard({ skill }: { skill: Skill }) {
   return (
-    <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
-      <CircularProgress percent={skill.level / 5} size={56} stroke={5} color={levelColors[skill.level] || '#2563EB'} bgColor="#E5E7EB">
+    <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-sm flex items-center gap-3 sm:gap-4">
+      <CircularProgress percent={skill.level / 5} size={48} stroke={5} color={levelColors[skill.level] || '#2563EB'} bgColor="#E5E7EB">
         {skill.level}
       </CircularProgress>
       <div className="flex-1">

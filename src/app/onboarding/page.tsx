@@ -47,13 +47,13 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen min-h-[100dvh] flex flex-col bg-white">
       {/* Skip */}
-      <div className="flex justify-end p-4">
+      <div className="flex justify-end p-4 safe-top">
         {current < steps.length - 1 && (
           <button
             onClick={() => router.push('/login')}
-            className="text-gray-500 text-sm font-medium"
+            className="text-gray-500 text-sm font-medium p-1"
           >
             Skip
           </button>
@@ -61,20 +61,20 @@ export default function OnboardingPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-8 text-center">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 sm:px-8 text-center">
         <div
-          className={`w-[180px] h-[180px] rounded-full bg-gradient-to-br ${steps[current].color} flex items-center justify-center mb-10 shadow-xl animate-scaleIn`}
+          className={`w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] rounded-full bg-gradient-to-br ${steps[current].color} flex items-center justify-center mb-8 sm:mb-10 shadow-xl animate-scaleIn`}
           key={current}
         >
-          <span className="text-7xl">{steps[current].emoji}</span>
+          <span className="text-5xl sm:text-7xl">{steps[current].emoji}</span>
         </div>
-        <h2 className="text-2xl font-bold text-slate-800 mb-1">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-1">
           {steps[current].title}
         </h2>
-        <p className="text-blue-600 font-semibold text-sm mb-4">
+        <p className="text-blue-600 font-semibold text-sm mb-3 sm:mb-4">
           {steps[current].subtitle}
         </p>
-        <p className="text-gray-500 leading-relaxed max-w-xs">
+        <p className="text-gray-500 leading-relaxed max-w-xs text-sm sm:text-base">
           {steps[current].description}
         </p>
       </div>
@@ -92,7 +92,7 @@ export default function OnboardingPage() {
       </div>
 
       {/* Button */}
-      <div className="px-8 pb-10">
+      <div className="px-6 sm:px-8 pb-10 pb-safe">
         <button
           onClick={next}
           className="w-full py-4 bg-blue-600 text-white rounded-2xl font-semibold text-base shadow-lg shadow-blue-600/30 hover:bg-blue-700 transition-colors"

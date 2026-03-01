@@ -5,8 +5,8 @@ const typeColors: Record<string, string> = { shortTerm: '#2563EB', project: '#10
 export default function MissionCard({ mission, onClick }: { mission: Mission; onClick?: () => void }) {
   const tc = typeColors[mission.type] || '#2563EB';
   return (
-    <div onClick={onClick} className="bg-white rounded-2xl p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
-      <div className="flex items-center gap-3">
+    <div onClick={onClick} className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-sm cursor-pointer hover:shadow-md active:scale-[0.98] transition-all">
+      <div className="flex items-center gap-2.5 sm:gap-3">
         <div className="w-11 h-11 bg-slate-100 rounded-xl flex items-center justify-center text-2xl shrink-0">{mission.companyLogo}</div>
         <div className="flex-1 min-w-0">
           <h3 className="text-[15px] font-semibold text-slate-800 truncate">{mission.title}</h3>
@@ -16,8 +16,8 @@ export default function MissionCard({ mission, onClick }: { mission: Mission; on
           {getMissionTypeLabel(mission.type)}
         </span>
       </div>
-      <div className="flex items-center gap-3 mt-3 text-xs text-gray-500">
-        <span>📍 {mission.isRemote ? 'Remote' : mission.location}</span>
+      <div className="flex items-center flex-wrap gap-2 sm:gap-3 mt-3 text-xs text-gray-500">
+        <span className="truncate">📍 {mission.isRemote ? 'Remote' : mission.location}</span>
         <span>💰 {mission.compensation.toFixed(0)} {mission.compensationType === 'hourly' ? '/hr' : 'TND'}</span>
         <span>⏱ {mission.durationDays} days</span>
       </div>

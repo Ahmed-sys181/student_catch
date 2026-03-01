@@ -29,13 +29,13 @@ export default function DashboardHome() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Gradient Header */}
-      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 px-5 pt-12 pb-8 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 px-4 sm:px-6 pt-12 safe-top pb-8 rounded-b-[30px]">
         <div className="flex items-start justify-between mb-6">
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <p className="text-white/70 text-sm">Good morning,</p>
-            <h1 className="text-2xl font-bold text-white">{currentUser.name.split(' ')[0]} 👋</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-white truncate">{currentUser.name.split(' ')[0]} 👋</h1>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <button className="relative">
               <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -49,7 +49,7 @@ export default function DashboardHome() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
           <StatCard icon="⚡" title="XP" value={currentUser.xpPoints.toString()} subtitle="Total" />
           <StatCard icon="🏆" title="Rank" value={`#${currentUser.rank}`} subtitle="Global" />
           <StatCard icon="📁" title="Projects" value={currentUser.completedProjects.toString()} subtitle="Done" />
@@ -58,14 +58,14 @@ export default function DashboardHome() {
       </div>
 
       {/* Content */}
-      <div className="px-5 pt-6 space-y-6">
+      <div className="px-4 sm:px-6 pt-6 space-y-6">
         {/* Profile Card */}
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-          <div className="flex items-center gap-4">
-            <CircularProgress percent={Math.round(currentUser.profileCompleteness * 100)} size={70} stroke={6} />
-            <div className="flex-1">
-              <h3 className="font-bold text-slate-800">Profile Completion</h3>
-              <p className="text-sm text-gray-500 mt-0.5">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <CircularProgress percent={Math.round(currentUser.profileCompleteness * 100)} size={60} stroke={6} />
+            <div className="flex-1 min-w-0">
+              <h3 className="font-bold text-slate-800 text-sm sm:text-base">Profile Completion</h3>
+              <p className="text-xs sm:text-sm text-gray-500 mt-0.5 truncate">
                 {currentUser.profileCompleteness < 1
                   ? 'Complete your profile to unlock more opportunities!'
                   : 'Your profile is complete!'}
@@ -76,8 +76,8 @@ export default function DashboardHome() {
 
         {/* Quick Actions */}
         <div>
-          <h2 className="text-lg font-bold text-slate-800 mb-3">Quick Actions</h2>
-          <div className="grid grid-cols-4 gap-3">
+          <h2 className="text-base sm:text-lg font-bold text-slate-800 mb-3">Quick Actions</h2>
+          <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {[
               { emoji: '🔬', label: 'Projects', path: '/dashboard/projects' },
               { emoji: '🎯', label: 'Missions', path: '/dashboard/missions' },
@@ -99,7 +99,7 @@ export default function DashboardHome() {
         {/* Active Projects */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-slate-800">Active Projects</h2>
+            <h2 className="text-base sm:text-lg font-bold text-slate-800">Active Projects</h2>
             <button
               onClick={() => router.push('/dashboard/projects')}
               className="text-blue-600 text-sm font-medium"
@@ -107,9 +107,9 @@ export default function DashboardHome() {
               See All
             </button>
           </div>
-          <div className="flex gap-4 overflow-x-auto no-scrollbar -mx-5 px-5">
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar -mx-4 sm:-mx-6 px-4 sm:px-6 snap-x snap-mandatory">
             {projects.slice(0, 3).map((p) => (
-              <div key={p.id} className="min-w-[280px]">
+              <div key={p.id} className="min-w-[260px] sm:min-w-[300px] snap-start">
                 <ProjectCard
                   project={p}
                   onClick={() => router.push(`/dashboard/projects/${p.id}`)}
@@ -122,7 +122,7 @@ export default function DashboardHome() {
         {/* Recent Missions */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-slate-800">Recent Missions</h2>
+            <h2 className="text-base sm:text-lg font-bold text-slate-800">Recent Missions</h2>
             <button
               onClick={() => router.push('/dashboard/missions')}
               className="text-blue-600 text-sm font-medium"
@@ -144,14 +144,14 @@ export default function DashboardHome() {
         {/* Badges */}
         {currentUser.badges.length > 0 && (
           <div className="pb-4">
-            <h2 className="text-lg font-bold text-slate-800 mb-3">Your Badges</h2>
-            <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5">
+            <h2 className="text-base sm:text-lg font-bold text-slate-800 mb-3">Your Badges</h2>
+            <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-4 sm:-mx-6 px-4 sm:px-6 snap-x snap-mandatory">
               {currentUser.badges.map((b) => (
                 <div
                   key={b.id}
-                  className="min-w-[110px] flex flex-col items-center p-4 bg-white rounded-2xl shadow-sm border border-gray-100"
+                  className="min-w-[100px] sm:min-w-[110px] flex flex-col items-center p-3 sm:p-4 bg-white rounded-2xl shadow-sm border border-gray-100 snap-start"
                 >
-                  <span className="text-3xl mb-2">{b.icon}</span>
+                  <span className="text-2xl sm:text-3xl mb-2">{b.icon}</span>
                   <span className="text-xs font-semibold text-slate-800 text-center leading-tight">
                     {b.name}
                   </span>

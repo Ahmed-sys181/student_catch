@@ -18,18 +18,26 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; padding: 0; }
 
-/* Mobile app shell */
+/* Responsive app shell */
 .app-shell {
-  max-width: 430px;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 100vh;
+  min-height: 100dvh;
   background: white;
   position: relative;
-  box-shadow: 0 0 40px rgba(0,0,0,0.08);
 }
-@media (max-width: 430px) {
-  .app-shell { max-width: 100%; box-shadow: none; }
+@media (min-width: 640px) {
+  .app-shell { max-width: 640px; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
 }
+@media (min-width: 1024px) {
+  .app-shell { max-width: 768px; }
+}
+
+/* Safe area support */
+.safe-top { padding-top: max(env(safe-area-inset-top), 12px); }
+.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
 
 /* Circular progress */
 .circular-progress {

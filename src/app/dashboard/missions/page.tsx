@@ -36,7 +36,7 @@ export default function MissionsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-green-500 to-green-700 px-5 pt-12 pb-6 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-green-500 to-green-700 px-4 sm:px-6 pt-12 safe-top pb-6 rounded-b-[30px]">
         <div className="flex items-center justify-between mb-4">
           <button onClick={() => router.back()}>
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -80,7 +80,7 @@ export default function MissionsPage() {
       </div>
 
       {/* Type filters */}
-      <div className="flex gap-2 overflow-x-auto no-scrollbar px-5 py-4">
+      <div className="flex gap-2 overflow-x-auto no-scrollbar px-4 sm:px-6 py-4">
         {types.map((t) => (
           <button
             key={t.label}
@@ -97,7 +97,7 @@ export default function MissionsPage() {
       </div>
 
       {/* List */}
-      <div className="px-5 space-y-3 pb-4">
+      <div className="px-4 sm:px-6 space-y-3 pb-4">
         {filtered.length === 0 ? (
           <div className="text-center py-16">
             <span className="text-5xl">🎯</span>

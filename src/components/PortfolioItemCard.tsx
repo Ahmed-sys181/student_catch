@@ -5,8 +5,8 @@ const typeColors: Record<string, string> = { project: '#2563EB', mission: '#10B9
 export default function PortfolioItemCard({ item, onClick }: { item: PortfolioItem; onClick?: () => void }) {
   const tc = typeColors[item.type] || '#9CA3AF';
   return (
-    <div onClick={onClick} className="bg-white rounded-2xl p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
-      <div className="flex items-center gap-3">
+    <div onClick={onClick} className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-sm cursor-pointer hover:shadow-md active:scale-[0.98] transition-all">
+      <div className="flex items-center gap-2.5 sm:gap-3">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: tc + '1a' }}>
           {getPortfolioTypeIcon(item.type)}
         </div>

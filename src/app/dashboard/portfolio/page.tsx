@@ -26,7 +26,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Profile Header */}
-      <div className="bg-gradient-to-br from-amber-500 to-orange-600 px-5 pt-12 pb-8 rounded-b-[30px]">
+      <div className="bg-gradient-to-br from-amber-500 to-orange-600 px-4 sm:px-6 pt-12 safe-top pb-8 rounded-b-[30px]">
         <div className="flex items-center justify-between mb-6">
           <button onClick={() => router.back()}>
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
@@ -64,7 +64,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex bg-white mx-5 mt-4 rounded-xl p-1 shadow-sm border border-gray-100">
+      <div className="flex bg-white mx-4 sm:mx-6 mt-4 rounded-xl p-1 shadow-sm border border-gray-100">
         {tabs.map((t, i) => (
           <button
             key={t}
@@ -79,7 +79,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* Content */}
-      <div className="px-5 pt-4 pb-4">
+      <div className="px-4 sm:px-6 pt-4 pb-4">
         {tab === 0 && (
           <div className="space-y-3">
             {portfolioItems.length === 0 ? (
@@ -96,9 +96,9 @@ export default function PortfolioPage() {
         )}
 
         {tab === 1 && (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {skills.length === 0 ? (
-              <div className="col-span-2 text-center py-16">
+              <div className="col-span-1 sm:col-span-2 text-center py-16">
                 <span className="text-5xl">🛠️</span>
                 <p className="text-gray-500 mt-4">No skills added yet</p>
               </div>
@@ -109,9 +109,9 @@ export default function PortfolioPage() {
         )}
 
         {tab === 2 && (
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {currentUser.badges.length === 0 ? (
-              <div className="col-span-3 text-center py-16">
+              <div className="col-span-2 sm:col-span-3 text-center py-16">
                 <span className="text-5xl">🏅</span>
                 <p className="text-gray-500 mt-4">No badges earned yet</p>
               </div>
